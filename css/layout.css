@@ -1,0 +1,155 @@
+/* ============================================================
+   layout.css – ส่วนใหญ่ของหน้า: header, hero, promise, contact, footer
+   ============================================================ */
+
+/* ---------- Header + เมนู ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--bg);
+  border-bottom: 2px solid var(--line);
+}
+.site-header__bar {
+  display: flex; align-items: center; justify-content: space-between;
+  height: var(--header-h);
+}
+.logo { font: 800 22px var(--font-display); color: var(--pink); text-decoration: none; }
+.logo span { color: var(--navy); }
+
+.nav__list { display: flex; align-items: center; gap: 22px; margin: 0; padding: 0; list-style: none; }
+.nav__list a { font-weight: 600; text-decoration: none; }
+.nav__list a:hover { color: var(--pink); }
+.nav__burger {
+  display: none; width: 44px; height: 44px;
+  background: none; border: 2px solid var(--ink); border-radius: 10px;
+  color: var(--ink); font-size: 22px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 48px 0 70px;
+  background:
+    radial-gradient(circle at 85% 10%, #ffe98a66 0, transparent 40%),
+    radial-gradient(circle at 5% 90%, #ff9ac455 0, transparent 40%);
+}
+.hero__inner { display: grid; grid-template-columns: 1.15fr 1fr; gap: 36px; align-items: center; }
+.hero__inner > * { animation: pop .7s both; }
+.hero__poster { animation-delay: .15s; }
+
+.hero__kicker {
+  display: inline-block; padding: 6px 22px;
+  background: var(--navy); color: #fff; border-radius: 6px;
+  font: 700 20px var(--font-display); transform: rotate(-2deg);
+}
+.hero__title {
+  margin: 14px 0 4px;
+  font-size: clamp(54px, 9vw, 112px); font-weight: 800; letter-spacing: -1px;
+  color: var(--pink); text-shadow: 4px 4px 0 var(--yellow);
+}
+.hero__title b { display: block; color: var(--navy); }
+.hero__tagline {
+  display: inline-block; padding: 0 18px;
+  background: var(--yellow); color: var(--on-yellow); border-radius: 8px;
+  font: 700 clamp(26px, 4vw, 40px) var(--font-display); transform: rotate(-1.5deg);
+}
+.hero__text { max-width: 34em; margin: 22px 0; color: var(--mute); }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+.hero__poster { position: relative; justify-self: center; width: min(100%, 460px); }
+.hero__poster img {
+  display: block; width: 100%;
+  border: 6px solid #fff; border-radius: 28px;
+  box-shadow: 0 18px 40px #1b3a8c33; transform: rotate(2.5deg);
+}
+.hero__sticker {
+  position: absolute; left: -14px; bottom: 26px; padding: 10px 18px;
+  background: var(--navy); color: #fff; border-radius: 14px;
+  font: 700 20px var(--font-display); transform: rotate(-5deg);
+  box-shadow: 0 6px 0 #0d2260;
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: translateY(24px) scale(.96); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- แถบสัญญาใจ ---------- */
+.promise { background: var(--navy); color: #fff; }
+.promise__list {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 34px;
+  margin: 0; padding: 16px 0; list-style: none;
+  font: 600 19px var(--font-display);
+}
+.promise__list li::before { content: "♥ "; color: var(--yellow); }
+
+/* ---------- ติดต่อ ---------- */
+.contact {
+  margin: 0 20px; padding: 56px 22px;
+  background: var(--pink); color: #fff; text-align: center; border-radius: 36px;
+}
+.contact h2 { font-size: clamp(30px, 5vw, 48px); }
+.contact__number {
+  display: inline-block; margin: 20px 0 26px; padding: 2px 30px;
+  background: var(--yellow); color: var(--on-yellow); border-radius: 20px;
+  font: 800 clamp(36px, 8vw, 76px) var(--font-display); text-decoration: none;
+  transform: rotate(-1.5deg); box-shadow: 0 8px 0 #c9a400;
+}
+.contact__name { margin: 0 0 22px; font: 600 22px var(--font-display); }
+
+/* ---------- Footer ---------- */
+.site-footer { padding: 36px 20px 110px; color: var(--mute); font-size: 15px; text-align: center; }
+
+/* ============================================================
+   ส่วนเพิ่ม: เครื่องมือใน header, ของลอยในหัวเว็บ, ตัวพิมพ์ดีด, แถบเลื่อน, สถิติ
+   ============================================================ */
+.nav { margin-left: auto; }
+.site-header__tools { display: flex; align-items: center; gap: 8px; margin-left: 14px; }
+
+.hero { position: relative; overflow: hidden; }
+.hero .wrap { position: relative; z-index: 1; }
+.hero::before, .hero::after {                       /* ก้อนสีลอยเคลื่อนไหวเบาๆ */
+  content: ""; position: absolute; z-index: 0; border-radius: 50%; filter: blur(8px); opacity: .55;
+  animation: drift 14s ease-in-out infinite;
+}
+.hero::before { width: 380px; height: 380px; right: -90px; top: -80px; background: radial-gradient(#ffd93b, transparent 70%); }
+.hero::after  { width: 320px; height: 320px; left: -80px; bottom: -90px; background: radial-gradient(#ff7ab2, transparent 70%); animation-delay: -6s; }
+
+.hero__floats { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.float { position: absolute; will-change: translate; }
+.float span { display: block; font-size: clamp(28px, 4vw, 46px); opacity: .8; animation: bob 5s ease-in-out infinite; animation-delay: var(--d, 0s); }
+
+.hero__rotator { margin: 18px 0 0; min-height: 2.6em; font: 700 clamp(22px, 3.6vw, 32px)/1.3 var(--font-display); color: var(--navy); }
+.hero__rotator .typewriter { color: var(--pink); }
+.caret { display: inline-block; width: 3px; height: 1em; margin-left: 3px; vertical-align: -.12em; background: var(--pink); animation: blink 1s steps(1) infinite; }
+.hero__hint {
+  position: absolute; right: -6px; top: -14px; z-index: 2; padding: 6px 14px;
+  background: var(--yellow); color: var(--on-yellow); border-radius: 14px;
+  font: 700 15px var(--font-display); animation: bob 2.4s ease-in-out infinite; transition: opacity .4s;
+}
+.hero__hint.is-gone { opacity: 0; pointer-events: none; }
+.hero__poster { cursor: pointer; }
+.hero__poster img { animation: float-tilt 6s ease-in-out infinite; }
+
+/* ---------- แถบบริการวิ่ง ---------- */
+.marquee { overflow: hidden; background: var(--yellow); color: var(--on-yellow); border-block: 3px solid var(--navy); }
+.marquee__track {
+  display: flex; align-items: center; gap: 26px; width: max-content; padding: 12px 0;
+  font: 700 20px var(--font-display); white-space: nowrap; animation: marquee 38s linear infinite;
+}
+.marquee:hover .marquee__track { animation-play-state: paused; }
+.marquee__track i { color: var(--pink); font-style: normal; }
+
+/* ---------- สถิติ ---------- */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding-block: 44px 0; text-align: center; }
+.stat { padding: 18px 10px; background: var(--card); border: 2px solid var(--line); border-radius: var(--radius); }
+.stat b { display: block; font: 800 clamp(40px, 7vw, 68px)/1 var(--font-display); color: var(--pink); }
+.stat b small { font-size: .5em; color: var(--navy); margin-left: 4px; }
+.stat span { color: var(--mute); font-weight: 600; }
+
+/* ---------- ติดต่อ: วงคลื่นรอบเบอร์ ---------- */
+.contact { position: relative; overflow: hidden; }
+.contact__number { position: relative; animation: wiggle 4s ease-in-out infinite; }
+.contact__number::before, .contact__number::after {
+  content: ""; position: absolute; inset: 0; border-radius: 20px; border: 4px solid var(--yellow);
+  animation: ring 2.4s ease-out infinite;
+}
+.contact__number::after { animation-delay: 1.2s; }

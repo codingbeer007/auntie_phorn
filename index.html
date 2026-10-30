@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ป้าพร ซิ่ง รับจบ – บริการครบวงจร ดูแลคุณเหมือนคนในครอบครัว</title>
+  <meta name="description" content="ซ่อมแซมบ้าน ตัดหญ้า จัดดอกไม้ รับส่งโรงพยาบาล ขนย้ายของ เช่ามอเตอร์ไซค์ไฟฟ้า โทร 086-921-1201">
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;700;800&family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
+  <!-- ลำดับสำคัญ: variables → base → layout → components → animations → responsive -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="wrap site-header__bar">
+      <a class="logo" href="#top">ป้าพร<span> ซิ่งรับจบ</span></a>
+      <nav class="nav" id="nav">
+        <ul class="nav__list">
+          <li><a href="#services">บริการ</a></li>
+          <li><a href="#work">ผลงาน</a></li>
+          <li><a href="#how">ขั้นตอน</a></li>
+          <li><a class="btn btn--sm" href="tel:0869211201" data-phone="tel"><span class="ico">📞</span> <span data-phone="text">086-921-1201</span></a></li>
+        </ul>
+      </nav>
+      <div class="site-header__tools">
+        <button class="fontsize" aria-label="เปลี่ยนขนาดตัวอักษร">ก</button>
+        <button class="nav__burger" aria-label="เปิดเมนู" aria-expanded="false" aria-controls="nav">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== Hero ===== -->
+    <div class="hero">
+      <div class="hero__floats" aria-hidden="true">
+        <div class="float" data-speed=".10" style="left:4%;top:12%"><span style="--d:0s">🏠</span></div>
+        <div class="float" data-speed=".16" style="left:44%;top:6%"><span style="--d:-1.2s">🌷</span></div>
+        <div class="float" data-speed=".06" style="left:90%;top:20%"><span style="--d:-2.4s">🛵</span></div>
+        <div class="float" data-speed=".14" style="left:2%;top:68%"><span style="--d:-.8s">🌳</span></div>
+        <div class="float" data-speed=".08" style="left:48%;top:82%"><span style="--d:-3s">🚚</span></div>
+        <div class="float" data-speed=".12" style="left:92%;top:72%"><span style="--d:-1.8s">🔧</span></div>
+      </div>
+      <div class="wrap hero__inner">
+        <div class="hero__body">
+          <span class="hero__kicker">บริการครบวงจร</span>
+          <h1 class="hero__title">ป้าพร<b>ซิ่งรับจบ</b></h1>
+          <div class="hero__tagline">ดูแลคุณเหมือนคนในครอบครัว</div>
+          <p class="hero__rotator" aria-live="off">ป้าพรรับ <span class="typewriter" id="typewriter">ซ่อมแซมบ้าน</span><span class="caret" aria-hidden="true"></span></p>
+          <p class="hero__text">งานเยอะแค่ไหน ป้าพรก็พร้อมดูแลค่ะ โทรเดียวจบทุกงาน</p>
+          <div class="hero__actions">
+            <a class="btn btn--pulse" href="tel:0869211201" data-phone="tel"><span class="ico">📞</span> โทรหาป้าพร</a>
+            <a class="btn btn--yellow" href="#services">ดูบริการทั้งหมด</a>
+          </div>
+        </div>
+        <div class="hero__poster">
+          <span class="hero__hint">👆 ลองแตะป้าพร!</span>
+          <img src="images/poster-paporn.jpg" alt="ป้าพรยกนิ้วโป้ง พร้อมให้บริการ">
+          <div class="hero__sticker">ทุกงาน…ไว้ใจป้าพร</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== แถบบริการวิ่ง (สร้างจาก PP.services) ===== -->
+    <div class="marquee" id="marquee" aria-hidden="true"></div>
+
+    <!-- ===== แถบสัญญาใจ ===== -->
+    <div class="promise">
+      <div class="wrap">
+        <ul class="promise__list">
+          <li>บริการรวดเร็ว</li><li>ราคายุติธรรม</li><li>งานเนี้ยบ</li><li>ดูแลด้วยใจ</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===== สถิติ (ตัวเลขนับขึ้นเมื่อเลื่อนมาถึง) ===== -->
+    <div class="wrap stats">
+      <div class="stat reveal reveal--zoom" style="--i:0"><b id="stat-services" data-count="8">0</b><span>หมวดบริการ</span></div>
+      <div class="stat reveal reveal--zoom" style="--i:1"><b data-count="24">0<small>ชม.</small></b><span>งานซ่อมแซมบ้าน</span></div>
+      <div class="stat reveal reveal--zoom" style="--i:2"><b data-count="1">0<small>สาย</small></b><span>โทรเดียวจบทุกงาน</span></div>
+    </div>
+
+    <!-- ===== บริการ ===== -->
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>บริการของป้าพร</h2>
+          <p>แตะเลือกหมวดที่สนใจ แล้วโทรคุยรายละเอียดได้เลย</p>
+        </div>
+        <div class="chips" id="filters" role="group" aria-label="กรองบริการ"></div>
+        <div class="service-grid" id="service-grid">
+          <noscript>กรุณาเปิด JavaScript เพื่อดูรายการบริการ หรือโทร 086-921-1201</noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ผลงาน ===== -->
+    <section class="section section--tint" id="work">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>ผลงานจริงหน้างาน</h2>
+          <p>แตะรูปเพื่อดูภาพขยาย ปาดซ้าย-ขวาเพื่อดูรูปถัดไป</p>
+        </div>
+        <div class="gallery" id="gallery"></div>
+      </div>
+    </section>
+
+    <!-- ===== ขั้นตอน ===== -->
+    <section class="section" id="how">
+      <div class="wrap">
+        <div class="section-head reveal"><h2>จ้างป้าพรง่ายๆ</h2></div>
+        <div class="steps" id="steps"></div>
+      </div>
+    </section>
+
+    <!-- ===== ติดต่อ (ปล่อยกระดาษสีเมื่อเลื่อนมาถึง) ===== -->
+    <div class="contact reveal reveal--zoom" id="contact" data-confetti>
+      <h2>สนใจสอบถามรายละเอียดเพิ่มเติมได้ที่</h2>
+      <a class="contact__number" href="tel:0869211201" data-phone="tel"><span data-phone="text">086-921-1201</span></a>
+      <p class="contact__name">คุณพร · รับสายทุกวัน</p>
+      <a class="btn btn--yellow" href="tel:0869211201" data-phone="tel"><span class="ico">📞</span> กดโทรเลย</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">© ป้าพร ซิ่งรับจบ · ทุกงาน…ไว้ใจป้าพร</footer>
+
+  <!-- ปุ่มลอย -->
+  <a class="btn btn--pulse fab-call" href="tel:0869211201" data-phone="tel"><span class="ico">📞</span> โทรหาป้าพร</a>
+  <button class="to-top" aria-label="กลับขึ้นด้านบน">🚀</button>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="ดูภาพขยาย">
+    <button class="lightbox__close" aria-label="ปิด">✕</button>
+    <button class="lightbox__prev" aria-label="รูปก่อนหน้า">‹</button>
+    <figure><img alt=""><figcaption class="lightbox__caption"></figcaption></figure>
+    <button class="lightbox__next" aria-label="รูปถัดไป">›</button>
+  </div>
+
+  <!-- สคริปต์: ข้อมูล → render → ui → effects → main -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/data/config.js"></script>
+  <script src="js/data/content.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/effects.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

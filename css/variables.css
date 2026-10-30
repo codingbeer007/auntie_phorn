@@ -1,0 +1,47 @@
+/* ============================================================
+   variables.css – ค่าสี ฟอนต์ ระยะ (แก้ธีมทั้งเว็บที่ไฟล์นี้)
+   ============================================================ */
+:root {
+  /* สีแบรนด์ (ตามโปสเตอร์) */
+  --pink:   #e6247a;
+  --navy:   #1b3a8c;
+  --yellow: #ffd93b;
+  --green:  #2f9e44;
+  --teal:   #12908e;
+  --violet: #7a45c9;
+  --orange: #f08a1c;
+  --blue:   #1c7ed6;
+  --rose:   #d6336c;
+
+  /* สีโทนหน้าเว็บ */
+  --bg:   #fff9ef;
+  --card: #ffffff;
+  --ink:  #23213a;
+  --mute: #5d5a75;
+  --line: #eadfc9;
+  --on-yellow: #2a2200;
+
+  /* ฟอนต์ */
+  --font-display: 'Kanit', sans-serif;
+  --font-body: 'Sarabun', system-ui, sans-serif;
+
+  /* ขนาด */
+  --header-h: 62px;
+  --radius: 22px;
+  --wrap: 1120px;
+
+  color-scheme: light;
+}
+
+/* โหมดมืด: ตามเครื่องผู้ใช้ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1830;
+    --card: #26233f;
+    --ink: #f6f2ff;
+    --mute: #bdb8d8;
+    --line: #3b3760;
+    --navy: #9db7ff;
+    color-scheme: dark;
+  }
+}

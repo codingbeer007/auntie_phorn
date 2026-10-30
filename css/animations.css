@@ -1,0 +1,32 @@
+/* ============================================================
+   animations.css – keyframes และระบบ "ลอยขึ้นเมื่อเลื่อนมาถึง"
+   การเคลื่อนไหวทั้งหมดถูกปิดอัตโนมัติถ้าเครื่องตั้ง "ลดการเคลื่อนไหว" (ดู base.css)
+   ============================================================ */
+
+/* ---------- Scroll reveal (เปิดใช้เมื่อ JS ทำงาน: html.js) ---------- */
+.js .reveal { opacity: 0; transform: translateY(34px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.3,1); transition-delay: calc(var(--i, 0) * 80ms); }
+.js .reveal--zoom { transform: scale(.88) translateY(20px); }
+.js .reveal.is-in { opacity: 1; transform: none; }
+.js .reveal.reveal-done { transition: transform .15s ease-out, box-shadow .25s; transition-delay: 0s; }
+
+/* ขีดเส้นใต้หัวข้อวาดตอนเลื่อนมาถึง */
+.section-head h2::after { content: ""; display: block; width: 0; height: 8px; margin-top: 8px; background: var(--pink); border-radius: 8px; transition: width .8s .2s ease; }
+.section-head.is-in h2::after { width: 90px; }
+
+/* ---------- Keyframes ---------- */
+@keyframes drift     { 50% { transform: translate(-40px, 30px) scale(1.12); } }
+@keyframes bob       { 50% { transform: translateY(-14px) rotate(6deg); } }
+@keyframes float-tilt{ 0%, 100% { transform: rotate(2.5deg) translateY(0); } 50% { transform: rotate(1deg) translateY(-12px); } }
+@keyframes blink     { 50% { opacity: 0; } }
+@keyframes marquee   { to { transform: translateX(-50%); } }
+@keyframes shine     { 0%, 55% { left: -80%; } 100% { left: 140%; } }
+@keyframes pulse     { 0% { box-shadow: 0 5px 0 #a8135a, 0 0 0 0 #e6247a88; } 70%, 100% { box-shadow: 0 5px 0 #a8135a, 0 0 0 22px #e6247a00; } }
+@keyframes ring      { from { transform: scale(1); opacity: .9; } to { transform: scale(1.35, 1.7); opacity: 0; } }
+@keyframes wiggle    { 0%, 90%, 100% { rotate: -1.5deg; } 93% { rotate: 3deg; } 96% { rotate: -4deg; } }
+@keyframes ring-phone{ 0%, 70%, 100% { transform: rotate(0); } 75% { transform: rotate(-18deg); } 80% { transform: rotate(16deg); } 85% { transform: rotate(-14deg); } 90% { transform: rotate(10deg); } }
+@keyframes pop-in    { from { transform: scale(.7); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes launch    { to { transform: translateY(-110vh) scale(.8); opacity: 0; } }
+@keyframes hop       { 0%, 100% { transform: rotate(-5deg); } 30% { transform: rotate(-5deg) translateY(-26px) scale(1.15); } 60% { transform: rotate(4deg) translateY(0); } }
+
+.hero__sticker.is-hop { animation: hop .7s ease; }
+.hero__title:hover { animation: wiggle .5s ease; }
